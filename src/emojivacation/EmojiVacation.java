@@ -6,6 +6,7 @@ import java.awt.Color;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Random;
+import java.util.random.RandomGenerator;
 
 @SuppressWarnings("SameParameterValue")
 public class EmojiVacation {
@@ -42,6 +43,11 @@ public class EmojiVacation {
         addSun(canvas);
 
         addCloudRows(canvas);
+
+        double myrand = randomDouble(1, 2);
+        System.out.println(myrand);
+        if (myrand > 1){
+            addMountains(canvas, 50, 5, 5);
 
         // TODO: [Instructions step 2] Create mountains 50% of the time.
         //       You should randomly determine the size and number of layers
