@@ -47,7 +47,7 @@ public class EmojiVacation {
         double myrand = randomDouble(1, 2);
         System.out.println(myrand);
         if (myrand > 1){
-            addMountains(canvas, 50, 5, 5);
+            addMountains(canvas, 100, 100, 100);
 
         // TODO: [Instructions step 2] Create mountains 50% of the time.
         //       You should randomly determine the size and number of layers
