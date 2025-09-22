@@ -34,7 +34,13 @@ public class EmojiVacation {
 
     private static void doSlideShow(CanvasWindow canvas) {
         // TODO: [Instructions step 8] Change this to an actual slideshow
-        generateVacationPhoto(canvas);
+        while (true){
+            generateVacationPhoto(canvas);
+            Thread.sleep(3000);
+            canvas.removeAll();
+
+        }
+        
     }
 
     private static void generateVacationPhoto(CanvasWindow canvas) {
@@ -68,13 +74,6 @@ public class EmojiVacation {
     private static List<GraphicsGroup> createFamily(int adultCount, int childCount) {
         double adultSize = 160, childSize = 90;
 
-        // TODO: [Instructions step 6] Change this so that instead of always creating one adult
-        //       and one child, it instead creates a list containing adultCount adults,
-        //       and childCount children.
-        //
-        // Hint: You can't use List.of() to do this, because you don't know the size of the
-        // resulting list before the code actually runs. What can you use?
-        //
         System.out.println(adultCount);
         System.out.println(childCount);
         List<GraphicsGroup> family = new ArrayList<>();
@@ -99,7 +98,27 @@ public class EmojiVacation {
         // type A, else with some other probability return emoji type B, else with a certain
         // probability ... etc ... else return a smiley by default.
         //
-        return Emojis.createSmileyFace(size);
+
+        int myrand3 = randomInt(1, 5);
+                if (myrand3 == 1){
+            return ProvidedEmojis.createSmileyFace(size);
+        }
+                if (myrand3 == 2){
+            return ProvidedEmojis.createFrownyFace(size);
+        }
+                if (myrand3 == 3){
+            return ProvidedEmojis.createWinkingFace(size);
+        }
+                if (myrand3 == 4){
+            return ProvidedEmojis.createNauseousFace(size);
+        }
+                if (myrand3 == 5){
+            return ProvidedEmojis.createContentedFace(size);
+        }
+        else{
+            return ProvidedEmojis.createSmileyFace(size);
+        }
+
     }
 
     private static void positionFamily(
@@ -109,7 +128,7 @@ public class EmojiVacation {
             double spacing
     ) {
         for (GraphicsGroup emoji:family){
-            emoji.setPosition(leftX + 1.5 * emoji.getWidth(), baselineY - emoji.getHeight());
+            emoji.setPosition(leftX + randomDouble(0, 4) * emoji.getWidth(), baselineY - emoji.getHeight());
         }
     }
 
