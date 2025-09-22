@@ -44,24 +44,23 @@ public class EmojiVacation {
 
         addCloudRows(canvas);
 
-        double myrand = randomDouble(1, 2);
-        System.out.println(myrand);
-        if (myrand > 1){
-            addMountains(canvas, 100, 100, 100);
-
-        // TODO: [Instructions step 2] Create mountains 50% of the time.
-        //       You should randomly determine the size and number of layers
-        //       (within reasonable constraints).
+        int myrand = randomInt(1, 2);
+        if (myrand == 2){
+            addMountains(canvas, 400, randomInt(60, 100), randomInt(1, 5));
+        }
 
         addGround(canvas, 400);
 
-        // TODO: [Instructions step 2] Create forests 60% of the time. You should randomly
-        //       determine the count for the number of trees. Pick reasonable values for
-        //       other parameters.
+        int myrand2 = randomInt(1, 10);
+        if (myrand2 < 11){
+            addForest(canvas, 500, 55, randomInt(10, 25));
+        }
 
         List<GraphicsGroup> family = createFamily(2, 3);
         positionFamily(family, 60, 550, 20);
-        // TODO: [Instructions step 4] Add each emoji in the list to the canvas
+        for (GraphicsGroup member:family){
+            canvas.add(member);
+        }
     }
 
     // –––––– Emoji family –––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––
@@ -76,9 +75,14 @@ public class EmojiVacation {
         // Hint: You can't use List.of() to do this, because you don't know the size of the
         // resulting list before the code actually runs. What can you use?
         //
+        ArrayList family = new ArrayList<>();
+        family.add(adultCount);
+        family.add(childCount);
+
         return List.of(
             createRandomEmoji(adultSize),
-            createRandomEmoji(childSize));
+            createRandomEmoji(childSize)
+            );
     }
 
     private static GraphicsGroup createRandomEmoji(double size) {
@@ -98,15 +102,9 @@ public class EmojiVacation {
             double baselineY,
             double spacing
     ) {
-        // TODO: [Instructions step 5] Iterate over the emojis in the list,
-        //       and position them all in a neat row
-
-        // The leftmost emoji’s left edge should be at leftX, and spacing is the number of pixels that should be between
-        // each emoji and the next. But how to you space them if the kids and adults have different widths? (Hint: you
-        // can ask any graphics object for its width.)
-        //
-        // The bottom of each emoji should be baselineY. But setPosition() sets the _top_! How do you set the bottom to
-        // a given position? (Hint: you can ask any graphics object for its height.)
+        for (GraphicsGroup emoji:family){
+            emoji.setPosition(leftX + 1.5 * emoji.getWidth(), baselineY - emoji.getHeight());
+        }
     }
 
     // –––––– Scenery ––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––
