@@ -36,12 +36,14 @@ public class EmojiVacation {
         // TODO: [Instructions step 8] Change this to an actual slideshow
         while (true){
             generateVacationPhoto(canvas);
-            Thread.sleep(3000);
+            canvas.draw();
+            canvas.pause(3000);
             canvas.removeAll();
 
         }
         
     }
+
 
     private static void generateVacationPhoto(CanvasWindow canvas) {
         canvas.setBackground(randomColorVariation(SKY_BLUE, 8));
@@ -74,8 +76,6 @@ public class EmojiVacation {
     private static List<GraphicsGroup> createFamily(int adultCount, int childCount) {
         double adultSize = 160, childSize = 90;
 
-        System.out.println(adultCount);
-        System.out.println(childCount);
         List<GraphicsGroup> family = new ArrayList<>();
         for (int i=0;i < adultCount;i++)
         {
