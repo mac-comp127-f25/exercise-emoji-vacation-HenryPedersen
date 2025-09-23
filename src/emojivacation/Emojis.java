@@ -4,6 +4,9 @@ import edu.macalester.graphics.*;
 
 import java.awt.Color;
 
+
+//jerry and henry's emoji work, emoji class that can make two emoji types, smiling and frowning.
+
 @SuppressWarnings("WeakerAccess")  // This stops Java from giving you warnings about your code that are not helpful here
 public class Emojis {
     private static final Color

@@ -6,7 +6,6 @@ import java.awt.Color;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Random;
-import java.util.random.RandomGenerator;
 
 @SuppressWarnings("SameParameterValue")
 public class EmojiVacation {
@@ -18,8 +17,7 @@ public class EmojiVacation {
         TREE_TRUNK_COLOR = new Color(0x553511),
         TREE_LEAVES_COLOR = new Color(0x17af13),
         GRASS_COLOR = new Color(0xbcda9f),
-        MOUNTAIN_COLOR = new Color(0x769afe),
-        NO_SLIDE_COLOR = new Color(0x22211a);
+        MOUNTAIN_COLOR = new Color(0x769afe);
 
     private static final int
         SCENE_WIDTH = 800,
@@ -33,7 +31,6 @@ public class EmojiVacation {
     }
 
     private static void doSlideShow(CanvasWindow canvas) {
-        // TODO: [Instructions step 8] Change this to an actual slideshow
         while (true){
             generateVacationPhoto(canvas);
             canvas.draw();
@@ -43,7 +40,6 @@ public class EmojiVacation {
         }
         
     }
-
 
     private static void generateVacationPhoto(CanvasWindow canvas) {
         canvas.setBackground(randomColorVariation(SKY_BLUE, 8));
@@ -77,13 +73,10 @@ public class EmojiVacation {
         double adultSize = 160, childSize = 90;
 
         List<GraphicsGroup> family = new ArrayList<>();
-        for (int i=0;i < adultCount;i++)
-        {
+        for (int i=0;i < adultCount;i++){
             family.add(createRandomEmoji(adultSize));
         }
-
-        for (int i=0;i < childCount;i++)
-        {
+        for (int i=0;i < childCount;i++){
             family.add(createRandomEmoji(childSize));
         }
     
@@ -91,13 +84,6 @@ public class EmojiVacation {
     }
 
     private static GraphicsGroup createRandomEmoji(double size) {
-        // TODO: [Instructions step 7] Change this so that instead of always creating a smiley face,
-        //       it randomly selects one of the many available emojis.
-        //
-        // Hint: You can use chained if/else conditionals: with a certain probability, return emoji
-        // type A, else with some other probability return emoji type B, else with a certain
-        // probability ... etc ... else return a smiley by default.
-        //
 
         int myrand3 = randomInt(1, 5);
                 if (myrand3 == 1){
@@ -376,13 +362,6 @@ public class EmojiVacation {
      */
     private static int randomInt(int min, int max) {
         return random.nextInt(max - min + 1) + min;
-    }
-
-    /**
-     * Convenience to return true with the given percent change (0 = always false, 100 = always true).
-     */
-    private static boolean percentChance(double chance) {
-        return random.nextDouble() * 100 < chance;
     }
 
     /**
