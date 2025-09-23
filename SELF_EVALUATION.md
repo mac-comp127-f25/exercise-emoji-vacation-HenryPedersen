@@ -50,6 +50,8 @@ sentence or two in response to each question is plenty.
 
 I didn't do the optional stuff due to time, but they look interesting. One thing i wish i did better was the spacing betwene family members, I used randomness for that which I'm not confident with, but can provide nice results
 
+(i also used RandomInt/Double instead of the provided random feature, hope that's okay. I removed the redundant provided stuff after. I didn't see that method for randomness and the import until the end)
+
 **What challenges did you face, and how did you overcome them?**
 
 The biggest challenges were interpreting the instructions. The biggest one was making a list with the parents and children emojis, but I didn't know that in each additoin to that list you add an actual emoji image, and then change the return to the list.
